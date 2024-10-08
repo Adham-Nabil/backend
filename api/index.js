@@ -10,7 +10,7 @@ app.use(cors());
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.API_KEY;
 
-module.exports = async (req, res) => {
+module.exports = app.get("/api/weather", async (req, res) => {
   const city = req.query.city;
 
   try {
@@ -21,7 +21,7 @@ module.exports = async (req, res) => {
   } catch (error) {
     res.status(500).send("Error fetching weather data");
   }
-};
+});
 
 // app.listen(PORT, () => {
 //   console.log(`Server running on port ${PORT}`);
