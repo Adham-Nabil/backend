@@ -1,16 +1,16 @@
 const axios = require("axios");
-const express = require("express");
-const cors = require("cors");
+// const express = require("express");
+// const cors = require("cors");
 
 require("dotenv").config();
 
-const app = express();
-app.use(cors());
+// const app = express();
+// app.use(cors());
 
 const PORT = process.env.PORT || 3000;
 const API_KEY = process.env.API_KEY;
 
-app.get("/weather", async (req, res) => {
+module.exports = async (req, res) => {
   const city = req.query.city;
 
   try {
@@ -21,8 +21,8 @@ app.get("/weather", async (req, res) => {
   } catch (error) {
     res.status(500).send("Error fetching weather data");
   }
-});
+};
 
-app.listen(PORT, () => {
-  console.log(`Server running on port ${PORT}`);
-});
+// app.listen(PORT, () => {
+//   console.log(`Server running on port ${PORT}`);
+// });

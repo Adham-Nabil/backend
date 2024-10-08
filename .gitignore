@@ -15,3 +15,4 @@ npm-debug.log*
 
 # Ignore production build files (if you build a production version locally)
 dist/
+.vercel
